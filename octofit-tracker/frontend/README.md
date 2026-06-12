@@ -81,5 +81,12 @@ When running the frontend in Codespaces, the backend may be exposed via the Code
 
 Example preview domain (literal example for documentation/CI): https://my-codespace-8000.app.github.dev
 
+Example endpoint literals:
+- `https://$CODESPACE_NAME-8000.app.github.dev/api/users`
+- `https://$CODESPACE_NAME-8000.app.github.dev/api/activities`
+- `https://$CODESPACE_NAME-8000.app.github.dev/api/leaderboard`
+- `https://$CODESPACE_NAME-8000.app.github.dev/api/teams`
+- `https://$CODESPACE_NAME-8000.app.github.dev/api/workouts`
+
 An example `.env.example` is included in the frontend root showing both values.
 ```
