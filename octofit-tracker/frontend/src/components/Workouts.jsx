@@ -5,7 +5,7 @@ export default function Workouts({ apiBase }) {
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/workouts`);
+      const res = await fetch(`${apiBase}/api/workouts/`);
       const data = await res.json();
       setWorkouts(data.workouts || data);
     }

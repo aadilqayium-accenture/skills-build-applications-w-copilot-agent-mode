@@ -5,7 +5,7 @@ export default function Teams({ apiBase }) {
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/teams`);
+      const res = await fetch(`${apiBase}/api/teams/`);
       const data = await res.json();
       setTeams(data.teams || data);
     }

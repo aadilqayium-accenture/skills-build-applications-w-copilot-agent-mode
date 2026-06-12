@@ -5,7 +5,7 @@ export default function Activities({ apiBase }) {
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/activities`);
+      const res = await fetch(`${apiBase}/api/activities/`);
       const data = await res.json();
       setActivities(data.activities || data);
     }

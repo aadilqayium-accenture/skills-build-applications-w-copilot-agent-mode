@@ -5,7 +5,7 @@ export default function Users({ apiBase }) {
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/users`);
+      const res = await fetch(`${apiBase}/api/users/`);
       const data = await res.json();
       setUsers(data.users || data);
     }

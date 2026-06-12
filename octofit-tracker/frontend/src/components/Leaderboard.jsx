@@ -5,7 +5,7 @@ export default function Leaderboard({ apiBase }) {
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/leaderboard`);
+      const res = await fetch(`${apiBase}/api/leaderboard/`);
       const data = await res.json();
       setEntries(data.entries || data);
     }
