@@ -71,3 +71,13 @@ export default defineConfig([
   },
 ])
 ```
+
+## Codespaces / Preview URL
+
+When running the frontend in Codespaces, the backend may be exposed via the Codespaces preview domain. Use the environment variable `VITE_API_BASE` to point the frontend to the API.
+
+- Local development: set `VITE_API_BASE="http://localhost:8000"`
+- Codespaces preview: set `VITE_API_BASE="https://$CODESPACE_NAME-8000.app.github.dev"`
+
+An example `.env.example` is included in the frontend root showing both values.
+```
