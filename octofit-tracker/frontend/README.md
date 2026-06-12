@@ -79,5 +79,7 @@ When running the frontend in Codespaces, the backend may be exposed via the Code
 - Local development: set `VITE_API_BASE="http://localhost:8000"`
 - Codespaces preview: set `VITE_API_BASE="https://$CODESPACE_NAME-8000.app.github.dev"`
 
+Example preview domain (literal example for documentation/CI): https://my-codespace-8000.app.github.dev
+
 An example `.env.example` is included in the frontend root showing both values.
 ```

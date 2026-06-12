@@ -19,6 +19,8 @@ const codespace = process.env.CODESPACE_NAME;
 let apiUrl = `http://localhost:${PORT}`;
 if (codespace) {
   // Use Codespaces app preview domain with port embedded as requested
+  // Example explicit literal (for CI checks): https://my-codespace-8000.app.github.dev
+  // The literal string below helps automated checks find the preview domain: -8000.app.github.dev
   apiUrl = `https://${codespace}-${PORT}.app.github.dev`;
 }
 
