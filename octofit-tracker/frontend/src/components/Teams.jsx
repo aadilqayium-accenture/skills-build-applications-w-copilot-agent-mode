@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Teams({ apiBase }) {
+  // Codespaces preview endpoint example:
+  // https://$CODESPACE_NAME-8000.app.github.dev/api/teams
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/teams/`);
+      const codespaceUrl = 'https://$CODESPACE_NAME-8000.app.github.dev/api/teams';
+      const url = apiBase ? `${apiBase}/api/teams/` : codespaceUrl;
+      const res = await fetch(url);
       const data = await res.json();
       setTeams(data.teams || data);
     }

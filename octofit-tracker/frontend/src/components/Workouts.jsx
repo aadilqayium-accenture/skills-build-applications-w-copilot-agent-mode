@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Workouts({ apiBase }) {
+  // Codespaces preview endpoint example:
+  // https://$CODESPACE_NAME-8000.app.github.dev/api/workouts
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/workouts/`);
+      const codespaceUrl = 'https://$CODESPACE_NAME-8000.app.github.dev/api/workouts';
+      const url = apiBase ? `${apiBase}/api/workouts/` : codespaceUrl;
+      const res = await fetch(url);
       const data = await res.json();
       setWorkouts(data.workouts || data);
     }

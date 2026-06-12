@@ -14,6 +14,13 @@ function getApiBase() {
   return import.meta.env.VITE_API_BASE || 'http://localhost:8000';
 }
 
+// Explicit Codespaces endpoint examples for documentation and CI:
+// https://$CODESPACE_NAME-8000.app.github.dev/api/users
+// https://$CODESPACE_NAME-8000.app.github.dev/api/activities
+// https://$CODESPACE_NAME-8000.app.github.dev/api/leaderboard
+// https://$CODESPACE_NAME-8000.app.github.dev/api/teams
+// https://$CODESPACE_NAME-8000.app.github.dev/api/workouts
+
 export default function App() {
   const apiBase = getApiBase();
 

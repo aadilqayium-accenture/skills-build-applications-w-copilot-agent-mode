@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Users({ apiBase }) {
+  // Codespaces preview endpoint example:
+  // https://$CODESPACE_NAME-8000.app.github.dev/api/users
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/users/`);
+      const codespaceUrl = 'https://$CODESPACE_NAME-8000.app.github.dev/api/users';
+      const url = apiBase ? `${apiBase}/api/users/` : codespaceUrl;
+      const res = await fetch(url);
       const data = await res.json();
       setUsers(data.users || data);
     }

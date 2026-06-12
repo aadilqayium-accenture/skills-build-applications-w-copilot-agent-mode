@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Leaderboard({ apiBase }) {
+  // Codespaces preview endpoint example:
+  // https://$CODESPACE_NAME-8000.app.github.dev/api/leaderboard
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
     async function load() {
-      const res = await fetch(`${apiBase}/api/leaderboard/`);
+      const codespaceUrl = 'https://$CODESPACE_NAME-8000.app.github.dev/api/leaderboard';
+      const url = apiBase ? `${apiBase}/api/leaderboard/` : codespaceUrl;
+      const res = await fetch(url);
       const data = await res.json();
       setEntries(data.entries || data);
     }
