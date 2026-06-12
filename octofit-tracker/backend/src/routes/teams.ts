@@ -1,18 +1,22 @@
 import { Router, Request, Response } from 'express';
+import Team from '../models/team';
 
 const router = Router();
 
-router.get('/', (_req: Request, res: Response) => {
-  res.json({ message: 'List teams (placeholder)', teams: [] });
+router.get('/', async (_req: Request, res: Response) => {
+  const teams = await Team.find().populate('members').lean();
+  res.json({ teams });
 });
 
-router.post('/', (req: Request, res: Response) => {
-  const team = req.body;
-  res.status(201).json({ message: 'Create team (placeholder)', team });
+router.post('/', async (req: Request, res: Response) => {
+  const team = await Team.create(req.body);
+  res.status(201).json(team);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
-  res.json({ message: 'Get team (placeholder)', id: req.params.id });
+router.get('/:id', async (req: Request, res: Response) => {
+  const team = await Team.findById(req.params.id).populate('members').lean();
+  if (!team) return res.status(404).json({ message: 'Not found' });
+  res.json(team);
 });
 
 export default router;

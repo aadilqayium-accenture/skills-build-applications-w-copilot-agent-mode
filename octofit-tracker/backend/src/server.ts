@@ -18,7 +18,8 @@ app.use(express.json());
 const codespace = process.env.CODESPACE_NAME;
 let apiUrl = `http://localhost:${PORT}`;
 if (codespace) {
-  apiUrl = `https://${codespace}-${PORT}.githubpreview.dev`;
+  // Use Codespaces app preview domain with port embedded as requested
+  apiUrl = `https://${codespace}-${PORT}.app.github.dev`;
 }
 
 // Configure CORS to allow either localhost or the Codespaces preview URL
